@@ -28,6 +28,7 @@ jobs:
         # NOTE: the "latest" variant is identified in the Docker meta step's 'latest' config
         variant:
           - java25
+          - java25-alpine
           - java25-jdk
           - java21
           - java21-alpine
@@ -43,6 +44,10 @@ jobs:
             baseImage: eclipse-temurin:25-jre
             platforms: linux/amd64,linux/arm64
             mcVersion: latest
+          - variant: java25-alpine
+            baseImage: eclipse-temurin:25-jre-alpine
+            platforms: linux/amd64,linux/arm64
+            mcVersion: latest
           - variant: java25-jdk
             baseImage: eclipse-temurin:25
             platforms: linux/amd64,linux/arm64
@@ -51,15 +56,15 @@ jobs:
           - variant: java21
             baseImage: eclipse-temurin:21-jre
             platforms: linux/amd64,linux/arm64
-            mcVersion: latest
+            mcVersion: 1.21.11
           - variant: java21-jdk
             baseImage: eclipse-temurin:21
             platforms: linux/amd64,linux/arm64
-            mcVersion: latest
+            mcVersion: 1.21.11
           - variant: java21-alpine
             baseImage: eclipse-temurin:21-jre-alpine
             platforms: linux/amd64,linux/arm64
-            mcVersion: latest
+            mcVersion: 1.21.11
         # JAVA 17:
           - variant: java17
             # jammy doesn't work until minecraft updates to https://github.com/netty/netty/issues/12343
